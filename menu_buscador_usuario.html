@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Buscador - Usuario</title>
+    <!-- Favicon -->
+    <link rel="icon" type="images/png" href="assets/hamburguesa.png">
+    <!-- Touch Icon -->
+    <link rel="apple-touch-icon" href="assets/hamburguesa.png">
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Estilos Propios -->
+    <link rel="stylesheet" href="css/menu_buscador_usuario.css">
+</head>
+<body>
+    <header class="header-top">
+        <div class="menu-icons">
+            <i class="ham bi bi-list"></i>
+            <a href="index.html" class="a-logo"><img src="assets/hamburguesa.png" alt="Logo Hamburguesas" id="logo"></a>
+            <div class="user-cart-icons">
+                <i class="bi bi-person-circle"></i>
+                <i class="bi bi-cart2"></i>
+            </div>
+        </div>
+        <div class="search">
+            <form action="#">
+                <input type="search" name="" id="busqueda" placeholder="buscar">
+                <i class="bi bi-search"></i>
+            </form>
+        </div>
+        <nav class="nav-bar">
+            <ul class="menu-bar">
+                <li><a href="#"><span class="title-link">NOVEDADES</span><i class="bi bi-caret-right flecha"></i></a></li>
+                <li><a href="#"><span class="title-link">CATÁLOGOS</span><i class="bi bi-caret-right flecha"></i></a></li>
+                <li><a href="#"><span class="title-link">MARCAS</span><i class="bi bi-caret-right submenu-flecha flecha"></i></a>
+                    <div class="panel-submenu">
+                        <ul class="submenu-bar">
+                            <li><a href="#"><span class="title-link">MARCAS</span><i class="bi bi-caret-left inicio-flecha"></i></a></li>
+                            <li><a href="#"><img src="assets/burguer-king-logo.png" alt="Burguer King Logo" class="marcas"><span>Burguer King</span></a></li>
+                            <li><a href="#"><img src="assets/mc-donalds-logo.png" alt="Mc Donalds Logo" class="marcas"><span>Mc Donalds</span></a></li>
+                            <li><a href="#"><img src="assets/telepizza-logo.svg" alt="Telepizza Logo" class="marcas"><span>Telepizza</span></a></li>
+                            <li><a href="#"><img src="assets/doninos-pizza-logo.png" alt="Dominos Pizza Logo" class="marcas"><span>Domino's Pizza</span></a></li>
+                            <li><a href="#"><img src="assets/pizza-hut-logo.png" alt="Pizza Hut Logo" class="marcas"><span>Pizza Hut</span></a></li>
+                        </ul>  
+                    </div>                               
+                </li>
+                <li><a href="#"><span class="title-link">CONTACTO</span><i class="bi bi-caret-right flecha"></i></a></li>
+                <li><a href="#"><span class="title-link">QUIENES SOMOS</span><i class="bi bi-caret-right flecha"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Menú Hamburguesa Buscador</h1>
+    <script src="js/index.js" type="module" defer></script>
+</body>
+</html>

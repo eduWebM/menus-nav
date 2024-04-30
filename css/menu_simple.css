@@ -1,0 +1,155 @@
+:root{
+    --main-font: sans-serif;
+    --font-size: 16px;
+    --letra-gris: hsl(0, 0%, 40%);
+    --fondo-header: hsl(0, 0%, 90%);
+    --fondo-modal: hsla(0, 0%, 0%, 0.6);
+    --blanco-transparente : hsla(0, 0%, 100%, 0.6);
+}
+html{
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+}
+*, *::after, *::before{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+h1, h2{
+    margin: 0;
+    text-align: center;
+    padding: 2rem;
+}
+header{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--fondo-header);
+}
+
+/* LOGO */
+.a-logo{
+    z-index: 10;
+}
+#logo{
+    width: clamp(55px, 4vw, 100px);
+    transition: all .3s ease;
+}
+#logo:hover{
+    filter: drop-shadow(0 0 5px #000);
+}
+
+/* HAMBURGUESA */
+.ham{
+    font-size: 3rem;
+    transition: transform 300ms;
+    z-index: 10;
+    cursor: pointer;
+}
+.rotar-y-blanquear{
+    /*transform: rotate(90deg);*/
+    transform: rotate(.5turn);
+    color: var(--fondo-header)
+    /*animation: muestraMenu 300ms ease-in-out both;*/
+}
+.header-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 10px 0px #fff;
+}
+
+/* ENLACES PAGINA */
+.nav-bar{
+    /*display: none;*/
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--fondo-modal);
+    /*animation: muestraMenu 700ms ease-in-out both;*/
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+.menu-bar{
+    width: inherit;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+    letter-spacing: .1rem;
+    text-align: center;
+}
+.menu-bar a{
+    text-decoration: none;
+    color: var(--letra-gris);
+}
+.menu-bar a:hover{
+    font-weight: bold;
+}
+.activado{ /* menú navegación mobile */
+    /*display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background-color: var(--fondo-modal);
+    animation: muestraMenu 700ms ease-in-out both;
+    backdrop-filter: blur(5px);*/
+    opacity: 1;
+    visibility: visible;
+}
+.activado a{
+    color: #fff;
+}
+
+/* Animaciones */
+@keyframes muestraMenu {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 1100px){ /* ordenadores */
+    .ham{
+        /* display: none; */
+        visibility: hidden;
+    }
+    .nav-bar{
+        /*display: block;*/
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        backdrop-filter: blur(0);
+        background-color: transparent;
+    }
+    .menu-bar{
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 2.5rem;
+        font-size: 1rem;
+    }
+    .menu-bar li{
+        padding-bottom: .3rem;
+    }
+}

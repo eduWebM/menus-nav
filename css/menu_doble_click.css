@@ -1,0 +1,205 @@
+:root{
+    --main-font: sans-serif;
+    --font-size: 16px;
+    --letra-gris: hsl(0, 0%, 40%);
+    --fondo-header: hsl(0, 0%, 90%);
+    --fondo-modal: hsla(0, 0%, 0%, 0.6);
+    --blanco-transparente : hsla(0, 0%, 100%, 0.6);
+}
+html{
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    font-size: var(--font-size);
+}
+*, *::after, *::before{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+h1, h2{
+    margin: 0;
+    text-align: center;
+    padding: 2rem;
+}
+header{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--fondo-header);
+}
+
+/* LOGO */
+.a-logo{
+    z-index: 10;
+}
+#logo{
+    width: clamp(55px, 4vw, 100px);
+    transition: all .3s ease;
+}
+#logo:hover{
+    filter: drop-shadow(0 0 5px #000);
+}
+
+/* HAMBURGUESA */
+.ham{
+    font-size: 3rem;
+    transition: transform 300ms;
+    z-index: 10;
+    cursor: pointer;
+}
+.rotar-y-blanquear{
+    transform: rotate(.5turn);
+    color: var(--fondo-header)
+}
+.header-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 10px 0px #fff;
+}
+
+/* ENLACES PAGINA */
+.nav-bar, .panel-submenu{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--fondo-modal);
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease;
+    transform: translate(100%, 0);
+}
+.menu-bar, .submenu-bar{
+    width: inherit;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+    letter-spacing: .1rem;
+    text-align: center;
+}
+:is(.menu-bar, .submenu-bar) li{
+    margin-inline: auto;
+    width: 90%;
+    padding: .6rem;
+    /* min-height: 3rem; */
+    border-bottom: thin solid #fff;
+}
+:is(.menu-bar, .submenu-bar) a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--letra-gris);
+}
+.menu-bar a:hover{
+    font-weight: bold;
+}
+.activado{ /* menú navegación mobile */
+    transform: translate(0,0);
+}
+.activado a{
+    color: #fff;
+}
+.submenu-bar{
+    list-style-type: none;
+}
+.submenu-flecha, .inicio-flecha, .flecha{
+    font-size: 1.8rem;
+}
+.flecha-null{
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media screen and (min-width: 1100px){ /* ordenadores */
+    .header-top{
+        display: flex;
+        justify-content: space-between;
+    }
+    .ham{
+        visibility: hidden;
+    }
+    .nav-bar{
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        flex-direction: row;
+        backdrop-filter: blur(0);
+        background-color: transparent;
+        transform: translate(0,0);
+        width: fit-content;
+    }
+    .menu-bar{
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 2.5rem;
+        font-size: 1rem;
+        width: inherit;
+    }
+    .menu-bar li{
+        padding-bottom: .3rem;
+        position: relative;
+        width: inherit;
+    }
+    .panel-submenu{
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(0,0);
+        transition: opacity .5s ease;
+    }
+    :is(.menu-bar, .submenu-bar) li{
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .submenu-flecha{
+        transform: rotate(.25turn);
+        font-size: 1.5rem;
+        margin-left: .5rem;
+    }
+    /* .menu-bar > li:hover .panel-submenu{
+        opacity: 1;
+        visibility: visible;
+        position: absolute;
+        top: 50px;
+        min-width: 200px;
+    } */
+    .submenu-bar{
+        background-color: var(--fondo-header);
+    }
+    .menu-bar > li{
+        position: relative;
+    }
+    .submenu-bar li:first-child{
+        display: none;
+    }
+    .activado-desktop{ /* menú navegación desktop */
+        opacity: 1;
+        visibility: visible;
+        position: absolute;
+        top: 50px;
+        min-width: 200px;
+        transform: translate(0,0);
+    }
+    .rotar-flecha{
+        transform: rotate(.75turn);
+    }
+    .link-active{
+        font-weight: bold;
+    }
+}
